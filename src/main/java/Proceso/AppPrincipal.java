@@ -62,12 +62,12 @@ public class AppPrincipal extends Application {
         Platform.runLater(() -> {
             try {
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(AppPrincipal.class.getResource("InicioView.fxml"));
+                loader.setLocation(AppPrincipal.class.getResource("InicioAdminView.fxml"));
 
                 AnchorPane rootLayout = loader.load();
 
                 InicioController inicioController = loader.getController();
-                inicioController.setAplicacion(this);
+                inicioController.setAplicacion(new AppPrincipal());
 
                 Scene scene = new Scene(rootLayout);
                 changeWindow(scene);

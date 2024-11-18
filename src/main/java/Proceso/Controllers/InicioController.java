@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import Proceso.Exception.UserDoesntExistException;
+import javafx.scene.input.MouseEvent;
 
 import  static Proceso.Controllers.AppController.INSTANCE;
 public class InicioController {
@@ -58,23 +59,20 @@ public class InicioController {
     }
 
 
-    @FXML
-    void clickedManagerLogin(ActionEvent event) {
-        appPrincipal.mostrarVentanaLoginAdmin();
-    }
-
-    @FXML
-    void clickedRegisterLogin(ActionEvent event) {
-        appPrincipal.mostrarVentanaRegistrarse();
-
-    }
-
     public void setAplicacion(AppPrincipal principal) {
         this.appPrincipal = principal;
     }
 
     private boolean datosValidos(String userName, String password) {
         return !userName.isEmpty() && !password.isEmpty();
+    }
+
+    public void managerLogin(MouseEvent mouseEvent) {
+        appPrincipal.mostrarVentanaLoginAdmin();
+    }
+
+    public void register(MouseEvent mouseEvent) {
+        appPrincipal.mostrarVentanaRegistrarse();
     }
 
 
