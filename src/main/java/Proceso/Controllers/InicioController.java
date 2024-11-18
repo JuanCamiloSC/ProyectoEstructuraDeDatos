@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import Proceso.Exception.UserDoesntExistException;
 import javafx.scene.input.MouseEvent;
 
+import javax.swing.*;
+
 import  static Proceso.Controllers.AppController.INSTANCE;
 public class InicioController {
 
@@ -27,6 +29,12 @@ public class InicioController {
 
     @FXML
     private TextField txtPasswordLogin;
+
+    @FXML
+    private Button btnManagerLogin;
+
+    @FXML
+    private Button btnRegisterLogin;
 
     @FXML
     private Label labelManagerLogin;
@@ -70,6 +78,16 @@ public class InicioController {
         return !userName.isEmpty() && !password.isEmpty();
     }
 
+    @FXML
+    void clickedManagerLogin(ActionEvent event){
+        appPrincipal.mostrarVentanaLoginAdmin();
+    }
+
+    @FXML
+    void clickedRegisterLogin(ActionEvent event){
+        appPrincipal.mostrarVentanaRegistrarse();
+    }
+
     /**public void managerLogin(MouseEvent mouseEvent) {
         appPrincipal.mostrarVentanaLoginAdmin();
     } **/
@@ -89,8 +107,9 @@ public class InicioController {
         assert txtPasswordLogin != null : "fx:id=\"txtPasswordLogin\" was not injected: check your FXML file 'InicioView.fxml'.";
         assert labelManagerLogin != null : "fx:id=\"labelManagerLogin\" was not injected: check your FXML file 'InicioView.fxml'.";
         assert labelRegisterLogin != null : "fx:id=\"labelRegisterLogin\" was not injected: check your FXML file 'InicioView.fxml'.";
+        assert btnManagerLogin != null : "fx:id=\"btnManagerLogin\" was not injected: check your FXML file 'InicioView.fxml'.";
+        assert btnRegisterLogin!= null : "fx:id=\"btnRegisterLogin\" was not injected: check your FXML file 'InicioView.fxml'.";
+
     }
-
-
 
 }

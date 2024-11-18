@@ -51,6 +51,16 @@
                                     <Font name="Microsoft YaHei Bold" size="12.0" />
                                  </font>
                               </Label>
+                              <Button fx:id="btnManagerLogin" layoutX="41.0" layoutY="308.0" mnemonicParsing="false" onAction="#clickedManagerLogin" style="-fx-background-color: #097c3d; -fx-background-radius: 5;" text="GET INTO" textFill="#fffcfc">
+                                 <font>
+                                    <Font name="Microsoft YaHei Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnRegisterLogin" layoutX="218.0" layoutY="308.0" mnemonicParsing="false" onAction="#clickedRegisterLogin" style="-fx-background-color: #097c3d; -fx-background-radius: 5;" text="GET INTO" textFill="#fffcfc">
+                                 <font>
+                                    <Font name="Microsoft YaHei Bold" size="11.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </children>

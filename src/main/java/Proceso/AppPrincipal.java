@@ -68,7 +68,7 @@ public class AppPrincipal extends Application {
                 AnchorPane rootLayout = loader.load();
 
                 InicioController inicioController = loader.getController();
-                inicioController.setAplicacion(new AppPrincipal());
+                inicioController.setAplicacion(this);
 
                 Scene scene = new Scene(rootLayout);
                 changeWindow(scene);
