@@ -17,14 +17,9 @@ public class InicioController {
 
     Tool tool = INSTANCE.getHerramienta();
     AppPrincipal appPrincipal;
+
     @FXML
     private Button btnGetIntoLogin;
-
-    @FXML
-    private Hyperlink hyperlinkManagerLogin;
-
-    @FXML
-    private Hyperlink hyperlinkRegisterLogin;
 
     @FXML
     private TextField txtIdLogin;
@@ -58,6 +53,11 @@ public class InicioController {
         }
     }
 
+    @FXML
+    void managerLoginAction(ActionEvent event){
+        appPrincipal.mostrarVentanaLoginAdmin();
+    }
+
 
     public void setAplicacion(AppPrincipal principal) {
         this.appPrincipal = principal;
@@ -67,9 +67,9 @@ public class InicioController {
         return !userName.isEmpty() && !password.isEmpty();
     }
 
-    public void managerLogin(MouseEvent mouseEvent) {
+    /**public void managerLogin(MouseEvent mouseEvent) {
         appPrincipal.mostrarVentanaLoginAdmin();
-    }
+    } **/
 
     public void register(MouseEvent mouseEvent) {
         appPrincipal.mostrarVentanaRegistrarse();

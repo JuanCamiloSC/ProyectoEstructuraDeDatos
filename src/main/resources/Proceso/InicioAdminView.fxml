@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Proceso.Controllers.InicioAdminViewController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
@@ -32,7 +31,7 @@
          <center>
             <AnchorPane prefHeight="315.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" layoutX="133.0" layoutY="53.0" prefHeight="41.0" prefWidth="46.0" text="ID:" textFill="#097c3d">
+                  <Label alignment="CENTER" layoutX="133.0" layoutY="53.0" prefHeight="41.0" prefWidth="46.0" text="MAIL:" textFill="#097c3d">
                      <font>
                         <Font name="Microsoft YaHei Bold" size="14.0" />
                      </font>
@@ -42,7 +41,7 @@
                         <Font name="Microsoft YaHei Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtIdManager" alignment="CENTER" layoutX="53.0" layoutY="96.0" prefHeight="35.0" prefWidth="206.0" promptText="id" style="-fx-background-color: transpare; -fx-border-color: #097c3d; -fx-border-width: 0px 0px 2;" />
+                  <TextField fx:id="txtMailManagerLogin" alignment="CENTER" layoutX="53.0" layoutY="96.0" prefHeight="35.0" prefWidth="206.0" promptText="mail" style="-fx-background-color: transpare; -fx-border-color: #097c3d; -fx-border-width: 0px 0px 2;" />
                   <TextField fx:id="txtPasswordManager" alignment="CENTER" layoutX="327.0" layoutY="96.0" prefHeight="35.0" prefWidth="206.0" promptText="password" style="-fx-background-color: transpare; -fx-border-color: #097c3d; -fx-border-width: 0px 0px 2;" />
                   <Button fx:id="btnLoginManager" layoutX="267.0" layoutY="190.0" mnemonicParsing="false" style="-fx-background-color: #097c3d; -fx-background-radius: 5;" text="LOGIN" textFill="WHITE">
                      <font>

@@ -24,12 +24,12 @@
                                     <Font name="Microsoft YaHei Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="29.0" layoutY="82.0" text="ID:" textFill="#097c3d">
+                              <Label layoutX="29.0" layoutY="82.0" text="MAIL:" textFill="#097c3d">
                                  <font>
                                     <Font name="Microsoft YaHei Bold" size="11.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtIdLogin" alignment="CENTER" layoutX="49.0" layoutY="98.0" prefHeight="26.0" prefWidth="230.0" promptText="id" style="-fx-background-color: transpare; -fx-border-color: #097c3d; -fx-border-width: 0px 0px 2;" />
+                              <TextField fx:id="txtMailLogin" alignment="CENTER" layoutX="49.0" layoutY="98.0" prefHeight="26.0" prefWidth="230.0" promptText="mail" style="-fx-background-color: transpare; -fx-border-color: #097c3d; -fx-border-width: 0px 0px 2;" />
                               <Label layoutX="29.0" layoutY="175.0" text="PASSWORD:" textFill="#097c3d">
                                  <font>
                                     <Font name="Microsoft YaHei Bold" size="11.0" />
@@ -41,7 +41,7 @@
                                     <Font name="Microsoft YaHei Bold" size="11.0" />
                                  </font>
                               </Button>
-                              <Label fx:id="labelManagerLogin" layoutX="37.0" layoutY="339.0" onMouseClicked="#managerLogin" text="I'm Manager" textFill="#00b3ec">
+                              <Label fx:id="labelManagerLogin" layoutX="37.0" layoutY="339.0" onMouseClicked="#managerLoginAction" text="I'm Manager" textFill="#00b3ec">
                                  <font>
                                     <Font name="Microsoft YaHei Bold" size="12.0" />
                                  </font>
