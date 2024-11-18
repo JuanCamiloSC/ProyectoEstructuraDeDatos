@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Proceso.Controllers.AdminActivitiesController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <left>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #b7ffdc; -fx-border-color: #ffffff;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="38.0" layoutY="14.0" text="CREATE ACTIVITY">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtNameActivity" layoutX="26.0" layoutY="59.0" style="-fx-background-radius: 5;" />
+                  <Label layoutX="18.0" layoutY="41.0" text="Name:">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="96.0" text="Description:">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtDescriptionActivity" layoutX="24.0" layoutY="114.0" style="-fx-background-radius: 5;" />
+                  <ComboBox fx:id="comboBoxMandatoryActivity" layoutX="23.0" layoutY="161.0" prefWidth="150.0" promptText="Mandatory" style="-fx-background-color: #ffffff; -fx-background-radius: 5;" />
+                  <Button fx:id="btnCrateActivity" layoutX="68.0" layoutY="202.0" mnemonicParsing="false" onAction="#clickedCreateActivity" style="-fx-background-color: #097c3d; -fx-background-radius: 5;" text="CREATE" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnEliminateActivity" layoutX="57.0" layoutY="237.0" mnemonicParsing="false" onAction="#clickedEliminateActivity" style="-fx-background-color: #097c3d; -fx-background-radius: 5;" text="ELIMINATE" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnUpdateActivity" layoutX="67.0" layoutY="271.0" mnemonicParsing="false" onAction="#clickedUpdateActivity" style="-fx-background-color: #097c3d; -fx-background-radius: 5;" text="UPDATE" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="labelOpenTaskAdminActivities" layoutX="68.0" layoutY="309.0" onMouseClicked="#OpenTaskAdminActivitiesAction" text="Open task" textFill="#00b3ec">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </left>
+         <top>
+            <AnchorPane prefHeight="52.0" prefWidth="652.0" style="-fx-background-color: #b7ffdc;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="55.0" layoutY="15.0" text="Managers">
+                     <font>
+                        <Font name="Microsoft YaHei UI Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="39.0" fitWidth="62.0" layoutX="572.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Media/vectorManager.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView fx:id="tableActivities" layoutX="1.0" layoutY="49.0" prefHeight="226.0" prefWidth="471.0" style="-fx-background-color: #ffffff;">
+                    <columns>
+                      <TableColumn fx:id="columnNameActivity" prefWidth="89.59996032714844" text="Name" />
+                      <TableColumn fx:id="columnDescriptionActivity" prefWidth="96.0" text="Description" />
+                        <TableColumn fx:id="columnMandatoryActivity" prefWidth="76.800048828125" text="Mandatory" />
+                        <TableColumn fx:id="columnMiniumTimeActivity" prefWidth="105.60003662109375" text="Minimum time" />
+                        <TableColumn fx:id="columnTotalTimeActivity" prefWidth="106.4000244140625" text="Total time" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="175.0" layoutY="21.0" text="Activities" textFill="#097c3d">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="250.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Media/vectorActivities.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btnExportActivity" layoutX="71.0" layoutY="299.0" mnemonicParsing="false" onAction="#clickedExportActivity" style="-fx-background-color: #097c3d; -fx-background-radius: 5;" text="EXPORT" textFill="#b7ffdc">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnSingOutActivity" layoutX="323.0" layoutY="299.0" mnemonicParsing="false" onAction="#clickedSignOutActivity" style="-fx-background-color: #f03836; -fx-background-radius: 5;" text="SIGN OUT" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft YaHei Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="txtSearchActivity" alignment="CENTER" layoutX="188.0" layoutY="298.0" prefHeight="16.0" prefWidth="85.0" promptText="Search" style="-fx-background-color: transpare; -fx-border-color: #097c3d; -fx-border-width: 0px 0px 2;" />
+               </children></AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
