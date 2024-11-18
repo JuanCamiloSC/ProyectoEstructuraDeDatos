@@ -41,12 +41,12 @@
                                     <Font name="Microsoft YaHei Bold" size="11.0" />
                                  </font>
                               </Button>
-                              <Label fx:id="labelManagerLogin" layoutX="37.0" layoutY="339.0" text="I'm Manager" textFill="#00b3ec">
+                              <Label fx:id="labelManagerLogin" layoutX="37.0" layoutY="339.0" onMouseClicked="#managerLogin" text="I'm Manager" textFill="#00b3ec">
                                  <font>
                                     <Font name="Microsoft YaHei Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="labelRegisterLogin" layoutX="227.0" layoutY="339.0" text="Register" textFill="#00b3ec">
+                              <Label fx:id="labelRegisterLogin" layoutX="227.0" layoutY="339.0" onMouseClicked="#register" text="Register" textFill="#00b3ec">
                                  <font>
                                     <Font name="Microsoft YaHei Bold" size="12.0" />
                                  </font>
