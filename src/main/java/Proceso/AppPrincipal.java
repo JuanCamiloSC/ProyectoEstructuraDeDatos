@@ -1,5 +1,6 @@
 package Proceso;
 import Proceso.Controllers.RegisterController;
+import Proceso.Controllers.SettingsViewController;
 import Proceso.Controllers.TaskController;
 import Proceso.Model.Tool;
 import javafx.application.Application;
@@ -116,6 +117,25 @@ public class AppPrincipal extends Application {
                 Scene scene = new Scene(rootLayout);
                 changeWindow(scene);
             } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public void mostrarVentanaConfiguraciones(){
+        Platform.runLater(() -> {
+            try{
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation((AppPrincipal.class.getResource("SettingsView.fxml")));
+
+                AnchorPane rootLayout = loader.load();
+
+                SettingsViewController settingsViewController = loader.getController();
+                settingsViewController.setAplicacion(this);
+
+                Scene scene = new Scene(rootLayout);
+                changeWindow(scene);
+            }catch (IOException e){
                 e.printStackTrace();
             }
         });

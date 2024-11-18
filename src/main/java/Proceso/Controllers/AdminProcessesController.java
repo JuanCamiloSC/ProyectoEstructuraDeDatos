@@ -73,6 +73,11 @@ public class AdminProcessesController {
     private TextField txtNameProcess;
 
     @FXML
+    void openSettingsProcessAction(ActionEvent event){
+        appPrincipal.mostrarVentanaConfiguraciones();
+    }
+
+    @FXML
     void clickedCreateProcess(ActionEvent event) {
         try{
             if (checkPermission())

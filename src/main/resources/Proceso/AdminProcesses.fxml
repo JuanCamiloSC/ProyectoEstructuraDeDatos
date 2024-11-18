@@ -19,9 +19,14 @@
                <top>
                   <AnchorPane prefHeight="47.0" prefWidth="600.0" style="-fx-background-color: #b7ffdc;" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="35.0" fitWidth="47.0" layoutX="514.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="35.0" fitWidth="47.0" layoutX="64.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Media/vectorProcesos.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="imagenSettingProcess" fitHeight="32.0" fitWidth="32.0" layoutX="507.0" layoutY="8.0" onMouseClicked="#openSettingsProcessAction" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Media/vectorConfiguraciones.png" />
                            </image>
                         </ImageView>
                      </children>
