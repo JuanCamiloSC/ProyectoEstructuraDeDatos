@@ -46,7 +46,7 @@
                                     <Font name="Microsoft YaHei Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="labelRegisterLogin" layoutX="227.0" layoutY="339.0" onMouseClicked="#register" text="Register" textFill="#00b3ec">
+                              <Label fx:id="labelRegisterLogin" layoutX="227.0" layoutY="339.0" onMouseClicked="#registerLoginAction" text="Register" textFill="#00b3ec">
                                  <font>
                                     <Font name="Microsoft YaHei Bold" size="12.0" />
                                  </font>

@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import Proceso.Exception.UserDoesntExistException;
 import javafx.scene.input.MouseEvent;
@@ -22,17 +23,22 @@ public class InicioController {
     private Button btnGetIntoLogin;
 
     @FXML
-    private TextField txtIdLogin;
+    private TextField txtMailLogin;
 
     @FXML
     private TextField txtPasswordLogin;
+
+    @FXML
+    private Label labelManagerLogin;
+    @FXML
+    private  Label labelRegisterLogin;
 
     @FXML
     void clickedGetIntoLogin(ActionEvent event) {
         String email = "";
         String password = "";
 
-        email = txtIdLogin.getText();
+        email = txtMailLogin.getText();
         password = txtPasswordLogin.getText();
         try {
             if (datosValidos(email, password)) {
@@ -53,10 +59,7 @@ public class InicioController {
         }
     }
 
-    @FXML
-    void managerLoginAction(ActionEvent event){
-        appPrincipal.mostrarVentanaLoginAdmin();
-    }
+
 
 
     public void setAplicacion(AppPrincipal principal) {
@@ -70,15 +73,23 @@ public class InicioController {
     /**public void managerLogin(MouseEvent mouseEvent) {
         appPrincipal.mostrarVentanaLoginAdmin();
     } **/
-
-    public void register(MouseEvent mouseEvent) {
+    @FXML
+    void managerLoginAction(MouseEvent mouseEvent){
+        appPrincipal.mostrarVentanaLoginAdmin();
+    }
+    public void registerLoginAction(MouseEvent mouseEvent) {
         appPrincipal.mostrarVentanaRegistrarse();
     }
 
 
-    /**
-     * falta el initialize
-     */
+    @FXML
+    void initialize(){
+        assert btnGetIntoLogin != null : "fx:id=\"btnGetIntoLogin\" was not injected: check your FXML file 'InicioView.fxml'.";
+        assert txtMailLogin != null : "fx:id=\"txtMailLogin\" was not injected: check your FXML file 'InicioView.fxml'.";
+        assert txtPasswordLogin != null : "fx:id=\"txtPasswordLogin\" was not injected: check your FXML file 'InicioView.fxml'.";
+        assert labelManagerLogin != null : "fx:id=\"labelManagerLogin\" was not injected: check your FXML file 'InicioView.fxml'.";
+        assert labelRegisterLogin != null : "fx:id=\"labelRegisterLogin\" was not injected: check your FXML file 'InicioView.fxml'.";
+    }
 
 
 
