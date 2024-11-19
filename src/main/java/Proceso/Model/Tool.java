@@ -1,5 +1,6 @@
 package Proceso.Model;
 
+import Proceso.Exception.ActivityAlreadyExistsException;
 import Proceso.Utils.Mail;
 import Proceso.Utils.ShowMessage;
 import javafx.application.Platform;
@@ -142,7 +143,7 @@ public class Tool {
 
     }
 
-    public ArrayList<Process> getProcessList(){ return  processList;}
+
 
     private void initialistData(){
 
@@ -172,6 +173,65 @@ public class Tool {
         user3.setUserType(UserType.ADMINISTRATOR);
 
         userList.add(user3);
+
+        //-----------------------------------------------------------------------------------------------------
+
+        Task task1 = new Task("task 1", "description task 1", true, 20);
+        Task task2 = new Task("task 2", "description task 2", false, 20);
+        Task task3 = new Task("task 3", "description task 3", true, 15);
+        Task task4 = new Task("task 4", "description task 4", false, 20);
+        Task task5 = new Task("task 5", "description task 5", true, 15);
+        Task task6 = new Task("task 6", "description task 6", false, 22);
+        Task task7 = new Task("task 7", "description task 7", true, 20);
+        Task task8 = new Task("task 8", "description task 8", false, 15);
+
+        //-------------------
+        Activity activity1 = new Activity("activity 1", "description acitvidad 1",true);
+        Activity activity2 = new Activity("activity 2", "description acitvidad 2",true);
+        Activity activity3 = new Activity("activity 3", "description acitvidad 3",true);
+        Activity activity4 = new Activity("activity 4", "description acitvidad 4",true);
+
+        try{
+            activity1.createTask(task1);
+            activity1.createTask(task2);
+            activity2.createTask(task3);
+            activity2.createTask(task4);
+            activity3.createTask(task5);
+            activity3.createTask(task6);
+            activity4.createTask(task7);
+            activity4.createTask(task8);
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        //-------------------------------
+        Process process1 = new Process("process 1", processList.size()+"");
+        processList.add(process1);
+        Process process2 = new Process("process 2", processList.size()+"");
+        processList.add(process2);
+        try{
+            process1.addActivity(activity3);
+            process1.addActivity(activity4);
+            process2.addActivity(activity1);
+            process2.addActivity(activity2);
+        } catch(ActivityAlreadyExistsException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean checkPermission(String userName){
+        for(User user : userList){
+            if(user.getUserName().equals(userName)){
+                return user.getUserType().equals(UserType.ADMINISTRATOR);
+            }
+        }
+        return false;
+    }
+    public ArrayList<Process> getProcessList(){
+        return  processList;
+    }
+
+    public ArrayList<User> getUserList(){
+        return userList;
     }
 }
 
