@@ -64,7 +64,7 @@ public class TaskController {
     @FXML
     private TableView<Task> tableTask;
 
-    private Label userName;
+    private final Label userName= new Label();
 
     @FXML
     private TextField txtDescriptionTask;
@@ -81,17 +81,17 @@ public class TaskController {
     Object tareaSelection;
 
     @FXML
-    void ClickedSignOutTask(MouseEvent event) throws IOException {
+    void ClickedSignOutTask(ActionEvent event) throws IOException {
         AppPrincipal.showTool();
         btnSignOutTask.getScene().getWindow().hide();
     }
     @FXML
-    void clickedCreateTask(MouseEvent event) {
+    void clickedCreateTask(ActionEvent event) {
         crearTarea();
     }
 
     @FXML
-    void clickedEliminateTask(MouseEvent event) {
+    void clickedEliminateTask(ActionEvent event) {
         eliminarTarea();
     }
 
@@ -193,9 +193,9 @@ public class TaskController {
         tableTask.setItems(filteredList);
     }
     private void loadTable(){
-        colunmNameTask.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        colunmDescriptionTask.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
-        columnTimeTask.setCellValueFactory(new PropertyValueFactory<>("tiempoDuracion"));
+        colunmNameTask.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colunmDescriptionTask.setCellValueFactory(new PropertyValueFactory<>("description"));
+        columnTimeTask.setCellValueFactory(new PropertyValueFactory<>("time"));
         colunmMandatoryTask.setCellValueFactory(param -> new SimpleBooleanProperty(param.getValue().getobligatory()));
         colunmMandatoryTask.setCellFactory(CheckBoxTableCell.forTableColumn(colunmMandatoryTask));
 
@@ -209,7 +209,7 @@ public class TaskController {
         tableTask.setItems(updatedTableData);
     }
 
-    public void clickedUpdateTask (MouseEvent mouseEvent) {
+    public void clickedUpdateTask (ActionEvent mouseEvent) {
         if(tareaSelection != null){
             Task tarea = (Task) tareaSelection;
             if(!txtNameTask.getText().isEmpty())
