@@ -150,7 +150,10 @@ public class AdminProcessesController {
 
     @FXML
     void clickedSingOutProcess(ActionEvent event) throws IOException {
-        AppPrincipal.showTool(); }
+        AppPrincipal.showTool();
+        btnSingOutProcess.getScene().getWindow().hide();
+
+    }
 
     @FXML
     void clickedUpdateProcess(ActionEvent event) {
@@ -163,7 +166,7 @@ public class AdminProcessesController {
     }
 
     @FXML
-    private Label userName;
+    private final Label userName= new Label();
 
     Object selectedProcess;
     ObservableList<Process> processListData = FXCollections.observableArrayList();
@@ -173,6 +176,7 @@ public class AdminProcessesController {
         if(selectedProcess != null){
         AppController.INSTANCE.setProcesoActual((Process) selectedProcess);
         AppPrincipal.showTaskView();
+        labelOpenActivitiesAdminProcesses.getScene().getWindow().hide();
         }
     }
      @FXML
@@ -196,8 +200,8 @@ public class AdminProcessesController {
     private void loadTable() {
         columIDProcess.setCellValueFactory(new PropertyValueFactory<>("id"));
         colunmNameProcess.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colunmMiniumTimeProcess.setCellValueFactory(new PropertyValueFactory<>("minimumDurationTime"));
-        colunmMaxiumTimeProcess.setCellValueFactory(new PropertyValueFactory<>("maxiumDurationTime"));
+        colunmMiniumTimeProcess.setCellValueFactory(new PropertyValueFactory<>("minTime"));
+        colunmMaxiumTimeProcess.setCellValueFactory(new PropertyValueFactory<>("maxTime"));
 
         processListData.clear();
         processListData.addAll(tool.getProcessList());

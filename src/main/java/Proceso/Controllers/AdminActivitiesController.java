@@ -140,6 +140,7 @@ public class AdminActivitiesController {
     @FXML
     void clickedSignOutActivity(MouseEvent event) throws IOException {
         AppPrincipal.showTool();
+        btnSingOutActivity.getScene().getWindow().hide();
     }
 
     @FXML
@@ -220,6 +221,7 @@ public class AdminActivitiesController {
         if(activitySelection!=null){
             INSTANCE.setActividadActual((Activity) activitySelection);
             AppPrincipal.showTaskView();
+            labelOpenTaskAdminActivities.getScene().getWindow().hide();
         }
     }
 

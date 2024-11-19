@@ -56,6 +56,7 @@ public class InicioController {
                     INSTANCE.setUsuarioActual(tool.searchUser(email));
 
                     AppPrincipal.showAdminProcessView();
+                    btnGetIntoLogin.getScene().getWindow().hide();
                 } else {
                     throw new UserDoesntExistException();
                 }
@@ -69,6 +70,7 @@ public class InicioController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
 
@@ -95,6 +97,7 @@ public class InicioController {
     }
     public void registerLoginAction(MouseEvent mouseEvent) throws IOException {
         AppPrincipal.showRegisterView();
+        labelRegisterLogin.getScene().getWindow().hide();
     }
 
 

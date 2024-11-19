@@ -56,6 +56,7 @@ public class RegisterController {
                         tool.createUser(name, password, UserType.REGULAR,email, cBoxNotificationRegister.getValue() );
                         ShowMessage.mostrarMensaje("Exito", "Usuario registrado", "El usuario se ha registrado exitosamente");
                         AppPrincipal.showTool();
+                        btnRegisterRegister.getScene().getWindow().hide();
                 }
 
         }

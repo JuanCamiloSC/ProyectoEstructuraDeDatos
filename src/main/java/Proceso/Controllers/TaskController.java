@@ -81,7 +81,9 @@ public class TaskController {
     Object tareaSelection;
 
     @FXML
-    void ClickedSignOutTask(MouseEvent event) throws IOException { AppPrincipal.showTool();
+    void ClickedSignOutTask(MouseEvent event) throws IOException {
+        AppPrincipal.showTool();
+        btnSignOutTask.getScene().getWindow().hide();
     }
     @FXML
     void clickedCreateTask(MouseEvent event) {

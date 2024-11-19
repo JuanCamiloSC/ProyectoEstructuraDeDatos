@@ -10,4 +10,5 @@ module EstructuraDatosPro {
     opens Proceso.Controllers to javafx.fxml;
     exports Proceso to javafx.graphics;
     exports Proceso.Controllers to javafx.fxml;
+    opens Proceso.Model to javafx.base;
 }
