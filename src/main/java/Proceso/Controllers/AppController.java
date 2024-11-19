@@ -16,7 +16,7 @@ public enum AppController {
     AppController() {
         this.actividad = null;
         this.process = null;
-        this.usuario = null;
+        this.usuario = new User();
         herramienta = new Tool("ADAN");
     }
 

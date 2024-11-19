@@ -177,6 +177,7 @@ public class AdminProcessesController {
     }
      @FXML
      void initialize() {
+        setUser(AppController.INSTANCE.getUsuarioActual());
         userName.setText(AppController.INSTANCE.getUsuarioActual().getUserName());
         loadTable();
         tableProcess.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {

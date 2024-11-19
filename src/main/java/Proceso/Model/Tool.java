@@ -167,10 +167,10 @@ public class Tool {
 
         User user3 = new User();
         user3.setUserName("Tatiana Mosquera");
-        user3.setPassword("12355");
-        user3.setMail("");
+        user3.setPassword("123");
+        user3.setMail("sisas");
         user3.setNotificationType(NotificationType.MAIL);
-        user3.setUserType(UserType.ADMINISTRATOR);
+        user3.setUserType(UserType.REGULAR);
 
         userList.add(user3);
 
