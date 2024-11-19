@@ -10,6 +10,7 @@ import Proceso.Model.Process;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -138,13 +139,13 @@ public class AdminActivitiesController {
 
 
     @FXML
-    void clickedSignOutActivity(MouseEvent event) throws IOException {
+    void clickedSignOutActivity(ActionEvent event) throws IOException {
         AppPrincipal.showTool();
         btnSingOutActivity.getScene().getWindow().hide();
     }
 
     @FXML
-    void clickedCreateActivity(MouseEvent event) {
+    void clickedCreateActivity(ActionEvent event) {
 
         if(process.getActivities().getSize()==0 || activitySelection==null ){
             try {
@@ -166,15 +167,16 @@ public class AdminActivitiesController {
     }
 
     void createSequenceActivity() {
-        if(!txtNameActivity.getText().isEmpty() && txtDescriptionActivity.getText().isEmpty())
+        if(!txtNameActivity.getText().isEmpty() && !txtDescriptionActivity.getText().isEmpty())
             process.addActivity(new Activity(txtNameActivity.getText(), txtDescriptionActivity.getText(), comboBoxMandatoryActivity.getValue()), ((Activity) activitySelection).getName());
         else
             ShowMessage.mostrarMensaje("Error","Error agrengando actividad","incompleta");
+        rechargeTable();
     }
 
 
     @FXML
-    void clickedEliminateActivity(MouseEvent event) {
+    void clickedEliminateActivity(ActionEvent event) {
         if(activitySelection!= null){
             try {
                 process.deleteActivity((Activity) activitySelection);
@@ -200,7 +202,7 @@ public class AdminActivitiesController {
     }
 
     @FXML
-    void clickedUpdateActivity(MouseEvent event) {
+    void clickedUpdateActivity(ActionEvent event) {
 
         if(activitySelection!=null){
             Activity activity = (Activity) activitySelection;
@@ -251,11 +253,11 @@ public class AdminActivitiesController {
 
     private void loadTable() {
         columnNameActivity.setCellValueFactory(new PropertyValueFactory<>("name"));
-        columnDescriptionActivity.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        columnDescriptionActivity.setCellValueFactory(new PropertyValueFactory<>("description"));
         columnMandatoryActivity.setCellValueFactory(param -> new SimpleBooleanProperty(param.getValue().getObligatory()));
         columnMandatoryActivity.setCellFactory(CheckBoxTableCell.forTableColumn(columnMandatoryActivity));
-        columnMiniumTimeActivity.setCellValueFactory(new PropertyValueFactory<>("Minimumtime"));
-        columnTotalTimeActivity.setCellValueFactory(new PropertyValueFactory<>("Totaltime"));
+        columnMiniumTimeActivity.setCellValueFactory(new PropertyValueFactory<>("minTime"));
+        columnTotalTimeActivity.setCellValueFactory(new PropertyValueFactory<>("totalTime"));
 
         ObservableList<Activity> activitiesData= FXCollections.observableArrayList(process.getActivities().getTableData());
         tableActivities.setItems(activitiesData);
