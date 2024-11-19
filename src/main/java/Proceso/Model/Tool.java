@@ -158,8 +158,8 @@ public class Tool {
 
         User user2 = new User();
         user2.setUserName("Juan Esteban Victoria");
-        user2.setPassword("12344");
-        user2.setMail("juane.victorial@uqvirtual.edu.co");
+        user2.setPassword("1234");
+        user2.setMail("juan");
         user2.setNotificationType(NotificationType.MAIL);
         user2.setUserType(UserType.ADMINISTRATOR);
 

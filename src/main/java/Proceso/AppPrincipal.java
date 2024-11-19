@@ -1,17 +1,15 @@
 package Proceso;
-import Proceso.Controllers.RegisterController;
-import Proceso.Controllers.SettingsViewController;
-import Proceso.Controllers.TaskController;
+
 import Proceso.Model.Tool;
 import javafx.application.Application;
-import Proceso.Controllers.InicioController;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+
 import javafx.stage.Stage;
 import static Proceso.Controllers.AppController.INSTANCE;
-import javafx.application.Platform;
+
 
 import java.io.IOException;
 
