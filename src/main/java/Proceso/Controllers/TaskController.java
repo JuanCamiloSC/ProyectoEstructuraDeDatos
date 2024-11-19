@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 
 import org.apache.poi.ss.usermodel.Row;
@@ -50,13 +49,13 @@ public class TaskController {
     private TableColumn<Task, Integer> columnTimeTask;
 
     @FXML
-    private TableColumn<Task, String> colunmDescriptionTask;
+    private TableColumn<Task, String> columnDescriptionTask;
 
     @FXML
-    private TableColumn<Task, Boolean> colunmMandatoryTask;
+    private TableColumn<Task, Boolean> columnMandatoryTask;
 
     @FXML
-    private TableColumn<Task, String> colunmNameTask;
+    private TableColumn<Task, String> columnNameTask;
 
     @FXML
     private ComboBox<String> comboBoxMandatoryTask;
@@ -148,10 +147,10 @@ public class TaskController {
             ObservableList<Task> items = tableTask.getItems();
             for (int i = 0; i < items.size(); i++) {
                 Row row = sheet.createRow(i + 1);
-                row.createCell(0).setCellValue(items.get(i).getname());
-                row.createCell(1).setCellValue(items.get(i).getdescription());
-                row.createCell(2).setCellValue(items.get(i).gettime());
-                row.createCell(3).setCellValue(items.get(i).getobligatory());
+                row.createCell(0).setCellValue(items.get(i).getName());
+                row.createCell(1).setCellValue(items.get(i).getDescription());
+                row.createCell(2).setCellValue(items.get(i).getTime());
+                row.createCell(3).setCellValue(items.get(i).getObligatory());
             }
 
             workbook.write(fileOut);
@@ -187,17 +186,17 @@ public class TaskController {
     private void searchTask() {
         String text = txtSearchTask.getText();
         ObservableList<Task> filteredList = actividad.getTasks().getTableData().stream()
-                .filter(tarea -> tarea.getname().toLowerCase().contains(text.toLowerCase()))
+                .filter(tarea -> tarea.getName().toLowerCase().contains(text.toLowerCase()))
                 .collect(Collectors.collectingAndThen(Collectors.toList(), FXCollections::observableArrayList));
 
         tableTask.setItems(filteredList);
     }
     private void loadTable(){
-        colunmNameTask.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colunmDescriptionTask.setCellValueFactory(new PropertyValueFactory<>("description"));
+        columnNameTask.setCellValueFactory(new PropertyValueFactory<>("name"));
+        columnDescriptionTask.setCellValueFactory(new PropertyValueFactory<>("description"));
         columnTimeTask.setCellValueFactory(new PropertyValueFactory<>("time"));
-        colunmMandatoryTask.setCellValueFactory(param -> new SimpleBooleanProperty(param.getValue().getobligatory()));
-        colunmMandatoryTask.setCellFactory(CheckBoxTableCell.forTableColumn(colunmMandatoryTask));
+        columnMandatoryTask.setCellValueFactory(param -> new SimpleBooleanProperty(param.getValue().getObligatory()));
+        columnMandatoryTask.setCellFactory(CheckBoxTableCell.forTableColumn(columnMandatoryTask));
 
         ObservableList<Task> tareas = FXCollections.observableArrayList(actividad.getTasks().getTableData());
         tableTask.setItems(tareas);
@@ -213,13 +212,13 @@ public class TaskController {
         if(tareaSelection != null){
             Task tarea = (Task) tareaSelection;
             if(!txtNameTask.getText().isEmpty())
-                tarea.setname(txtNameTask.getText());
+                tarea.setName(txtNameTask.getText());
             if(!txtDescriptionTask.getText().isEmpty())
-                tarea.setdescription(txtDescriptionTask.getText());
+                tarea.setDescription(txtDescriptionTask.getText());
             if(!txtTimeTask.getText().isEmpty())
-                tarea.settime(Integer.parseInt(txtTimeTask.getText()));
+                tarea.setTime(Integer.parseInt(txtTimeTask.getText()));
             if(comboBoxMandatoryTask.getValue() != null)
-                tarea.setobligatory(comboBoxMandatoryTask.getValue().equals("Si"));
+                tarea.setObligatory(comboBoxMandatoryTask.getValue().equals("Si"));
             rechargeTable();
         }
         INSTANCE.getProcesoActual().calculateTimes();

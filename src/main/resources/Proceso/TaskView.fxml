@@ -79,10 +79,10 @@
                   </ImageView>
                   <TableView fx:id="tableTask" layoutY="58.0" prefHeight="267.0" prefWidth="390.0">
                     <columns>
-                      <TableColumn fx:id="colunmNameTask" prefWidth="95.19993436336517" text="Name" />
-                      <TableColumn fx:id="colunmDescriptionTask" prefWidth="90.40003204345703" text="Description" />
+                      <TableColumn fx:id="columnNameTask" prefWidth="95.19993436336517" text="Name" />
+                      <TableColumn fx:id="columnDescriptionTask" prefWidth="90.40003204345703" text="Description" />
                         <TableColumn fx:id="columnTimeTask" prefWidth="92.79998779296875" text="Time" />
-                        <TableColumn fx:id="colunmMandatoryTask" prefWidth="113.60003662109375" text="Mandatory" />
+                        <TableColumn fx:id="columnMandatoryTask" prefWidth="113.60003662109375" text="Mandatory" />
                     </columns>
                   </TableView>
                   <Button fx:id="btnExportTask" layoutX="35.0" layoutY="340.0" mnemonicParsing="false" onAction="#clickedExportTask" style="-fx-background-color: #097c3d; -fx-background-radius: 5;" text="EXPORT" textFill="WHITE">

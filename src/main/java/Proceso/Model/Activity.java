@@ -34,7 +34,7 @@ public class Activity {
 
     public Task buscarTareaPorNombre(String nombreTarea){
         for (Task tarea : tasks) {
-            if(tarea.getname().equals(nombreTarea)){
+            if(tarea.getName().equals(nombreTarea)){
                 return tarea;
             }
         }
@@ -72,7 +72,7 @@ public class Activity {
      */
     public Task searchTaskByName(String name){
             for (Task task: tasks){
-                if(task.getname().equals(name)){
+                if(task.getName().equals(name)){
                     return task;
                 }
             }
@@ -97,8 +97,8 @@ public class Activity {
     public int calculateTotalTime() {
         int Totaltime = 0;
         for (Task task : tasks) {
-            if (!task.getobligatory()) {
-                Totaltime += task.gettime();
+            if (!task.getObligatory()) {
+                Totaltime += task.getTime();
             }
         }
         return  Totaltime;
@@ -106,8 +106,8 @@ public class Activity {
     public int calculateMinTime() {
         int Mintime = 0;
         for (Task task : tasks) {
-            if (!task.getobligatory()) {
-                Mintime += task.gettime();
+            if (!task.getObligatory()) {
+                Mintime += task.getTime();
             }
         }
         return  Mintime;

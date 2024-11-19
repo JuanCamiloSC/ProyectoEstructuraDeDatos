@@ -6,8 +6,8 @@ public class Task {
 
     private String name;
     private String description;
-    private Boolean obligatory;
     private int time;
+    private Boolean obligatory;
 
     public Task(String name, String description, Boolean obligatory, int time) {
         this.name = name;
@@ -17,36 +17,36 @@ public class Task {
         this.time = time;
     }
 
-    public String getname() {
+    public String getName() {
         return name;
     }
 
-    public String getdescription() {
+    public String getDescription() {
         return description;
     }
 
-    public Boolean getobligatory() {
+    public Boolean getObligatory() {
         return obligatory;
     }
 
 
-    public int gettime() {
+    public int getTime() {
         return time;
     }
 
-    public void setname(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void setdescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setobligatory(Boolean obligatory) {
+    public void setObligatory(Boolean obligatory) {
         this.obligatory = obligatory;
     }
 
-    public void settime(int time) {
+    public void setTime(int time) {
         this.time = time;
     }
 
