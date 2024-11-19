@@ -175,7 +175,7 @@ public class AdminProcessesController {
     void openActivitiesAction(MouseEvent event) throws IOException {
         if(selectedProcess != null){
         AppController.INSTANCE.setProcesoActual((Process) selectedProcess);
-        AppPrincipal.showTaskView();
+        AppPrincipal.showAdminActivitiesView();
         labelOpenActivitiesAdminProcesses.getScene().getWindow().hide();
         }
     }
