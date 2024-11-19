@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 import  static Proceso.Controllers.AppController.INSTANCE;
 
 public class TaskController {
-    AppPrincipal appPrincipal;
+
 
     Activity actividad = INSTANCE.getActividadActual();
 
@@ -81,7 +81,7 @@ public class TaskController {
     Object tareaSelection;
 
     @FXML
-    void ClickedSignOutTask(MouseEvent event) { appPrincipal.mostrarVentanaIniciarHerramienta();
+    void ClickedSignOutTask(MouseEvent event) throws IOException { AppPrincipal.showTool();
     }
     @FXML
     void clickedCreateTask(MouseEvent event) {
@@ -205,9 +205,6 @@ public class TaskController {
         tableTask.getItems().clear();
         ObservableList<Task> updatedTableData = FXCollections.observableArrayList(actividad.getTasks().getTableData());
         tableTask.setItems(updatedTableData);
-    }
-    public void setAplicacion(AppPrincipal aplicacion) {
-        this.appPrincipal = aplicacion;
     }
 
     public void clickedUpdateTask (MouseEvent mouseEvent) {

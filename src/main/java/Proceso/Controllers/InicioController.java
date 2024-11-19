@@ -14,12 +14,14 @@ import javafx.scene.input.MouseEvent;
 
 import javax.swing.*;
 
+import java.io.IOException;
+
 import  static Proceso.Controllers.AppController.INSTANCE;
 public class InicioController {
 
 
     Tool tool = INSTANCE.getHerramienta();
-    AppPrincipal appPrincipal;
+
 
     @FXML
     private Button btnGetIntoLogin;
@@ -53,7 +55,7 @@ public class InicioController {
                 if (tool.searchUser(email).getPassword().equals(password)) {
                     INSTANCE.setUsuarioActual(tool.searchUser(email));
 
-                    AppPrincipal.mostrarVentanaProcesosAdmin();
+                    AppPrincipal.showAdminProcessView();
                 } else {
                     throw new UserDoesntExistException();
                 }
@@ -64,40 +66,38 @@ public class InicioController {
             ShowMessage.mostrarMensaje("Notificacion Inicio sesion", "Datos Incompletos", "Debe ingresar los datos correctamente, despues de 3 intentos se bloqueara el usuario");
         } catch (UserDoesntExistException e) {
             ShowMessage.mostrarMensaje("Notificacion Inicio sesion", "Usuario no existe", "El usuario no existe o la contrasenia es incorrecta");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
 
-
-
-    public void setAplicacion(AppPrincipal principal) {
-        this.appPrincipal = principal;
-    }
 
     private boolean datosValidos(String userName, String password) {
         return !userName.isEmpty() && !password.isEmpty();
     }
 
     @FXML
-    void clickedManagerLogin(ActionEvent event){
-        appPrincipal.mostrarVentanaLoginAdmin();
+    void clickedManagerLogin(ActionEvent event) throws IOException {
+        AppPrincipal.showInicioAdminView();
+
     }
 
     @FXML
-    void clickedRegisterLogin(ActionEvent event){
-        appPrincipal.mostrarVentanaRegistrarse();
+    void clickedRegisterLogin(ActionEvent event) throws IOException {
+        AppPrincipal.showRegisterView();
     }
 
-    /**public void managerLogin(MouseEvent mouseEvent) {
-        appPrincipal.mostrarVentanaLoginAdmin();
-    } **/
+
     @FXML
-    void managerLoginAction(MouseEvent mouseEvent){
-        appPrincipal.mostrarVentanaLoginAdmin();
+    void managerLoginAction(MouseEvent mouseEvent) throws IOException {
+        AppPrincipal.showInicioAdminView();
     }
-    public void registerLoginAction(MouseEvent mouseEvent) {
-        appPrincipal.mostrarVentanaRegistrarse();
+    public void registerLoginAction(MouseEvent mouseEvent) throws IOException {
+        AppPrincipal.showRegisterView();
     }
+
+
 
 
     @FXML

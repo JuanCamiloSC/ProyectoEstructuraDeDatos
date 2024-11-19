@@ -138,8 +138,8 @@ public class AdminActivitiesController {
 
 
     @FXML
-    void clickedSignOutActivity(MouseEvent event) {
-        aplicacion.mostrarVentanaIniciarHerramienta();
+    void clickedSignOutActivity(MouseEvent event) throws IOException {
+        AppPrincipal.showTool();
     }
 
     @FXML
@@ -216,10 +216,10 @@ public class AdminActivitiesController {
     }
 
     @FXML
-    void OpenTaskAdminActivitiesAction(MouseEvent event) {
+    void OpenTaskAdminActivitiesAction(MouseEvent event) throws IOException {
         if(activitySelection!=null){
             INSTANCE.setActividadActual((Activity) activitySelection);
-            aplicacion.mostrarVentanaTareasAdmin();
+            AppPrincipal.showTaskView();
         }
     }
 

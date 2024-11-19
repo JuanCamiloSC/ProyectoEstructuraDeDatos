@@ -10,13 +10,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
+
 import  static Proceso.Controllers.AppController.INSTANCE;
 
 public class RegisterController {
 
         Tool tool=  INSTANCE.getHerramienta();
 
-        AppPrincipal appPrincipal;
 
         @FXML
         private Button btnRegisterRegister;
@@ -43,7 +45,7 @@ public class RegisterController {
         private TextField txtPhoneNumberRegister;
 
         @FXML
-        void clickedRegisterRegister(ActionEvent event) {
+        void clickedRegisterRegister(ActionEvent event) throws IOException {
                 String name= txtNameRegister.getText();
                 String password= txtNewPasswordRegister.getText();
                 String email= txtMailRegister.getText();
@@ -53,16 +55,13 @@ public class RegisterController {
                 }else {
                         tool.createUser(name, password, UserType.REGULAR,email, cBoxNotificationRegister.getValue() );
                         ShowMessage.mostrarMensaje("Exito", "Usuario registrado", "El usuario se ha registrado exitosamente");
-                        appPrincipal.mostrarVentanaIniciarHerramienta();
+                        AppPrincipal.showTool();
                 }
 
         }
         @FXML
         void initialize(){
                 cBoxNotificationRegister.getItems().addAll(NotificationType.values());
-        }
-        public void setAplicacion(AppPrincipal aplicacion){
-                this.appPrincipal= aplicacion;
         }
 
 

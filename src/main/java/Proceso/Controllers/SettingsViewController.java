@@ -13,13 +13,16 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import Proceso.Exception.IncorrectDataException;
+
+import java.io.IOException;
+
 import  static Proceso.Controllers.AppController.INSTANCE;
 
 public class SettingsViewController {
 
     User user= INSTANCE.getUsuarioActual();
 
-    AppPrincipal appPrincipal;
+
 
     @FXML
     private ImageView backSettings;
@@ -43,7 +46,7 @@ public class SettingsViewController {
     private TextField txtPasswordSettings;
 
     @FXML
-    void clickedSaveSettings(ActionEvent event) {
+    void clickedSaveSettings(ActionEvent event) throws IOException {
         try{
             if(txtMailSettings.getText().isEmpty()|| txtPasswordSettings.getText().isEmpty()|| txtNameSettings.getText().isEmpty())
                 throw new IncompleteDataException();
@@ -54,7 +57,7 @@ public class SettingsViewController {
                 user.setMail(txtMailSettings.getText());
                 user.setUserType(comboBoxUserTypeSettings.getValue());
                 user.setNotificationType(comoBoxNotificationTypeSettings.getValue());
-                appPrincipal.mostrarVentanaIniciarHerramienta();
+                AppPrincipal.showTool();
 
             }else {
                 throw new IncorrectDataException();
@@ -67,18 +70,14 @@ public class SettingsViewController {
 
     }
     @FXML
-    void backSettingsAction(ActionEvent event) {
-        appPrincipal.mostrarVentanaIniciarHerramienta();
+    void backSettingsAction(ActionEvent event) throws IOException {
+        AppPrincipal.showTool();
     }
 
     @FXML
     void initialize(){
         comboBoxUserTypeSettings.getItems().addAll(UserType.values());
         comoBoxNotificationTypeSettings.getItems().addAll(NotificationType.values());
-    }
-
-    public void setAplicacion(AppPrincipal aplicacion){
-        this.appPrincipal= aplicacion;
     }
 
 

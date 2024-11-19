@@ -6,6 +6,7 @@ import Proceso.Model.Tool;
 import javafx.application.Application;
 import Proceso.Controllers.InicioController;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -19,128 +20,88 @@ public class AppPrincipal extends Application {
 
     Tool tool = INSTANCE.getHerramienta();
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
     @Override
-    public void start(Stage primaryStage) {
-        AppPrincipal.primaryStage = primaryStage;
-        AppPrincipal.primaryStage.setTitle("Herramienta");
+    public void start(Stage stage) throws IOException {
+        showTool();
 
-        mostrarVentanaIniciarHerramienta();
     }
 
-    public void changeWindow(Scene newScene) {
-        if (primaryStage != null) {
-            primaryStage.setScene(newScene);
-            primaryStage.show();
-        } else {
-            System.out.println("primaryStage es null");
-        }
+    public static void main(String[] args) {
+        launch();
+    }
+    
+    public static void  showTool() throws IOException {
+        FXMLLoader loader = new FXMLLoader(AppPrincipal.class.getResource("InicioView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Tool");
+        stage.show();
+        stage.setResizable(false);
     }
 
-    public void mostrarVentanaIniciarHerramienta() {
-        Platform.runLater(() -> {
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(AppPrincipal.class.getResource("InicioView.fxml"));
-
-                AnchorPane rootLayout = loader.load();
-
-                INSTANCE.setUsuarioActual(null);
-
-                Scene scene = new Scene(rootLayout);
-                changeWindow(scene);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+    public static void  showInicioAdminView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(AppPrincipal.class.getResource("InicioAdminView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Inicio");
+        stage.show();
+        stage.setResizable(false);
     }
 
-    public void mostrarVentanaLoginAdmin() {
-        Platform.runLater(() -> {
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(AppPrincipal.class.getResource("InicioAdminView.fxml"));
-
-                AnchorPane rootLayout = loader.load();
-
-                InicioController inicioController = loader.getController();
-                inicioController.setAplicacion(this);
-
-                Scene scene = new Scene(rootLayout);
-                changeWindow(scene);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+    public static void  showAdminProcessView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(AppPrincipal.class.getResource("AdminProcesses.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Process");
+        stage.show();
+        stage.setResizable(false);
     }
 
-    public static void mostrarVentanaProcesosAdmin() {
-        Platform.runLater(() -> {
-            // Aquí puedes agregar el código para mostrar la ventana de procesos admin
-        });
+
+    public static void  showTaskView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(AppPrincipal.class.getResource("TaskView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Tasks");
+        stage.show();
+        stage.setResizable(false);
     }
 
-    public void mostrarVentanaTareasAdmin() {
-        Platform.runLater(() -> {
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(AppPrincipal.class.getResource("TaskView.fxml"));
 
-                AnchorPane rootLayout = loader.load();
 
-                TaskController taskController = loader.getController();
-                taskController.setAplicacion(this);
-
-                Scene scene = new Scene(rootLayout);
-                changeWindow(scene);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+    public static void  showRegisterView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(AppPrincipal.class.getResource("RegisterView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Register");
+        stage.show();
+        stage.setResizable(false);
     }
 
-    public void mostrarVentanaRegistrarse() {
-        Platform.runLater(() -> {
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(AppPrincipal.class.getResource("RegisterView.fxml"));
 
-                AnchorPane rootLayout = loader.load();
-
-                RegisterController registerController = loader.getController();
-                registerController.setAplicacion(this);
-
-                Scene scene = new Scene(rootLayout);
-                changeWindow(scene);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+    public static void  showSettingsView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(AppPrincipal.class.getResource("SettingsView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Settings");
+        stage.show();
+        stage.setResizable(false);
     }
 
-    public void mostrarVentanaConfiguraciones(){
-        Platform.runLater(() -> {
-            try{
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation((AppPrincipal.class.getResource("SettingsView.fxml")));
-
-                AnchorPane rootLayout = loader.load();
-
-                SettingsViewController settingsViewController = loader.getController();
-                settingsViewController.setAplicacion(this);
-
-                Scene scene = new Scene(rootLayout);
-                changeWindow(scene);
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-        });
+    public static void  showAdminActivitiesView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(AppPrincipal.class.getResource("AdminActivities.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Activities");
+        stage.show();
+        stage.setResizable(false);
     }
+
 }
-
-
-

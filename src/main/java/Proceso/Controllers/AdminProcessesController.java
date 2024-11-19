@@ -30,7 +30,7 @@ import java.io.IOException;
 
 public class AdminProcessesController {
 
-    AppPrincipal appPrincipal;
+
 
     Tool tool = AppController.INSTANCE.getHerramienta();
 
@@ -73,8 +73,8 @@ public class AdminProcessesController {
     private TextField txtNameProcess;
 
     @FXML
-    void openSettingsProcessAction(ActionEvent event){
-        appPrincipal.mostrarVentanaConfiguraciones();
+    void openSettingsProcessAction(ActionEvent event) throws IOException {
+      AppPrincipal.showSettingsView();
     }
 
     @FXML
@@ -149,7 +149,8 @@ public class AdminProcessesController {
     }
 
     @FXML
-    void clickedSingOutProcess(ActionEvent event) { appPrincipal.mostrarVentanaIniciarHerramienta(); }
+    void clickedSingOutProcess(ActionEvent event) throws IOException {
+        AppPrincipal.showTool(); }
 
     @FXML
     void clickedUpdateProcess(ActionEvent event) {
@@ -168,10 +169,10 @@ public class AdminProcessesController {
     ObservableList<Process> processListData = FXCollections.observableArrayList();
 
     @FXML
-    void openActivitiesAction(MouseEvent event){
+    void openActivitiesAction(MouseEvent event) throws IOException {
         if(selectedProcess != null){
         AppController.INSTANCE.setProcesoActual((Process) selectedProcess);
-        appPrincipal.mostrarVentanaTareasAdmin();
+        AppPrincipal.showTaskView();
         }
     }
      @FXML
@@ -210,7 +211,6 @@ public class AdminProcessesController {
         tableProcess.setItems(processListData);
     }
 
-    public void setAppPrincipal(AppPrincipal appPrincipal){this.appPrincipal = appPrincipal;}
     public void setUser(User user){this.user = user;}
 }
 
