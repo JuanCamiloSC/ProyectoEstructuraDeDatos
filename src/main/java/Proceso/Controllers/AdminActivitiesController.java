@@ -90,7 +90,7 @@ public class AdminActivitiesController {
 
     Object activitySelection;
     @FXML
-    private Label nombreProceso;
+    private final Label nombreProceso= new Label();
 
 
 
