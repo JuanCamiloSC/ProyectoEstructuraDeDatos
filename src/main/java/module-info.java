@@ -1,7 +1,6 @@
 module EstructuraDatosPro {
     requires javafx.controls;
     requires javafx.fxml;
-
     requires org.apache.poi.poi;
     requires org.apache.poi.ooxml;
     requires java.mail;
@@ -10,5 +9,5 @@ module EstructuraDatosPro {
     opens Proceso.Controllers to javafx.fxml;
     exports Proceso to javafx.graphics;
     exports Proceso.Controllers to javafx.fxml;
-    opens Proceso.Model to javafx.base;
+    exports Proceso.Model;
 }
