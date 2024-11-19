@@ -82,7 +82,7 @@ public class TaskController {
 
     @FXML
     void ClickedSignOutTask(ActionEvent event) throws IOException {
-        AppPrincipal.showTool();
+        AppPrincipal.showAdminProcessView();
         btnSignOutTask.getScene().getWindow().hide();
     }
     @FXML
